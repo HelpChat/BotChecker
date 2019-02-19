@@ -6,7 +6,7 @@ import me.piggypiglet.botchecker.core.framework.BinderModule;
 import org.reflections.Reflections;
 
 // ------------------------------
-// Copyright (c) PiggyPiglet 2018
+// Copyright (c) PiggyPiglet 2019
 // https://www.piggypiglet.me
 // ------------------------------
 public final class BotCheckerBootstrap {
@@ -17,6 +17,6 @@ public final class BotCheckerBootstrap {
         injector.injectMembers(BotCheckerBootstrap.class.newInstance());
         isReady = true;
 
-        new BotChecker().start(new Reflections("me.piggypiglet.botchecker"), injector);
+        new BotChecker().start(injector);
     }
 }

@@ -1,7 +1,7 @@
-package me.piggypiglet.botchecker.core.objects;
+package me.piggypiglet.botchecker.core.tasks;
 
 // ------------------------------
-// Copyright (c) PiggyPiglet 2018
+// Copyright (c) PiggyPiglet 2019
 // https://www.piggypiglet.me
 // ------------------------------
 public abstract class GRunnable implements Runnable {

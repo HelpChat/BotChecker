@@ -7,7 +7,7 @@ import me.piggypiglet.botchecker.core.tasks.Task;
 import java.util.Scanner;
 
 // ------------------------------
-// Copyright (c) PiggyPiglet 2018
+// Copyright (c) PiggyPiglet 2019
 // https://www.piggypiglet.me
 // ------------------------------
 public final class ConsoleRegisterable extends Registerable {

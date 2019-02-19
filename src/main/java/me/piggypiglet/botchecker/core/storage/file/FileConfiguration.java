@@ -8,7 +8,7 @@ import java.util.Map;
 import java.util.Set;
 
 // ------------------------------
-// Copyright (c) PiggyPiglet 2018
+// Copyright (c) PiggyPiglet 2019
 // https://www.piggypiglet.me
 // ------------------------------
 @SuppressWarnings("unused")

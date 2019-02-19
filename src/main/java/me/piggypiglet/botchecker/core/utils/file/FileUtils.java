@@ -6,7 +6,7 @@ import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 
 // ------------------------------
-// Copyright (c) PiggyPiglet 2018
+// Copyright (c) PiggyPiglet 2019
 // https://www.piggypiglet.me
 // ------------------------------
 public final class FileUtils {
