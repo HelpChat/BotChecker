@@ -1,3 +1,7 @@
 {
-  "token": "<TOKEN>"
+  "token": "<TOKEN>",
+
+  "command-prefixes": [
+    ";"
+  ]
 }

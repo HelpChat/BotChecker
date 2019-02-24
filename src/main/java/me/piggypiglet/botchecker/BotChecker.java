@@ -1,15 +1,11 @@
 package me.piggypiglet.botchecker;
 
-import com.google.inject.Inject;
 import com.google.inject.Injector;
-import com.google.inject.Singleton;
-import lombok.Getter;
 import me.piggypiglet.botchecker.core.enums.Registerables;
-import me.piggypiglet.botchecker.core.framework.BinderModule;
 import me.piggypiglet.botchecker.core.framework.Registerable;
+import me.piggypiglet.botchecker.core.registerables.RegisterableValues;
 import org.reflections.Reflections;
 
-import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -20,19 +16,19 @@ import static me.piggypiglet.botchecker.core.enums.Registerables.*;
 // Copyright (c) PiggyPiglet 2019
 // https://www.piggypiglet.me
 // ------------------------------
-@Singleton
 public final class BotChecker {
-    @Getter private final Map<String, Object> values = new HashMap<>();
-
-    void start(Injector injector) {
+    void start(Injector injector, Reflections reflections) {
+        RegisterableValues values = injector.getInstance(RegisterableValues.class);
         Map<Registerables, Registerable> registerables =
                 reflections.getSubTypesOf(Registerable.class).stream().map(injector::getInstance).collect(Collectors.toMap(Registerable::getRegisterable, registerable -> registerable));
+        values.getValues().put("reflections", reflections);
+        values.getValues().put("injector", injector);
 
-        Stream.of(
-            GFILE, JDA, CONSOLE, SHUTDOWN_HOOK
-        ).map(registerables::get).forEach(r -> {
-            r.run();
-            values.putAll(r.getValues());
-        });
+        Registerables[] startup = {GFILE, JDA, CONSOLE, EVENTS, COMMANDS, SHUTDOWN_HOOK};
+
+        for (Registerable registerable : Stream.of(startup).map(registerables::get).collect(Collectors.toList())) {
+            registerable.run();
+            values.getValues().putAll(registerable.getValues());
+        }
     }
 }

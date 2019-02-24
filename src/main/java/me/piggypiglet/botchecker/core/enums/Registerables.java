@@ -5,5 +5,5 @@ package me.piggypiglet.botchecker.core.enums;
 // https://www.piggypiglet.me
 // ------------------------------
 public enum Registerables {
-    GFILE, JDA, EVENTS, CONSOLE, SHUTDOWN_HOOK
+    GFILE, JDA, EVENTS, COMMANDS, CONSOLE, SHUTDOWN_HOOK
 }
