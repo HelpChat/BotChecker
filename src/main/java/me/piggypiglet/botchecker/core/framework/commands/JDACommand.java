@@ -11,7 +11,6 @@ import net.dv8tion.jda.api.events.message.guild.GuildMessageReceivedEvent;
 public abstract class JDACommand {
     @Getter private final String[] commands;
     @Getter private Roles allowedRole = Roles.EVERYBODY;
-    @Getter private String description = "null";
 
     protected final Options options = new Options();
 
@@ -30,11 +29,6 @@ public abstract class JDACommand {
 
         public Options setRole(Roles allowedRole) {
             JDACommand.this.allowedRole = allowedRole;
-            return this;
-        }
-
-        public Options setDescription(String description) {
-            JDACommand.this.description = description;
             return this;
         }
     }

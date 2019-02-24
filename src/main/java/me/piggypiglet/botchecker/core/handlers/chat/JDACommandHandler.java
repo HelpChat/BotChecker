@@ -42,6 +42,10 @@ public final class JDACommandHandler extends GEvent {
 
             for (JDACommand command : commands) {
                 if (StringUtils.startsWith(message, Arrays.asList(command.getCommands()))) {
+                    for (String str : command.getCommands()) {
+                        message = message.replaceFirst(str, "");
+                    }
+
                     String[] args = message.trim().split("\\s+(?=([^\"]*\"[^\"]*\")*[^\"]*$)");
                     args = args.length == 0 ? new String[]{} : args;
 

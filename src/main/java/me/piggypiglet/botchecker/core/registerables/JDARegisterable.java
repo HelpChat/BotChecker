@@ -23,7 +23,7 @@ public final class JDARegisterable extends Registerable {
     @Override
     protected void execute() {
         try {
-            addValue("jda", new JDABuilder(AccountType.CLIENT)
+            addValue("jda", new JDABuilder(AccountType.BOT)
                     .setToken(Config.getString("token"))
                     .setStatus(OnlineStatus.ONLINE)
                     .addEventListeners(eventHandler)
