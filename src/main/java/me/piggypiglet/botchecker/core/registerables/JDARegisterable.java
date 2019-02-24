@@ -8,6 +8,7 @@ import me.piggypiglet.botchecker.core.storage.file.Config;
 import net.dv8tion.jda.api.AccountType;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.OnlineStatus;
+import net.dv8tion.jda.api.entities.Activity;
 
 // ------------------------------
 // Copyright (c) PiggyPiglet 2019
@@ -26,6 +27,7 @@ public final class JDARegisterable extends Registerable {
             addValue("jda", new JDABuilder(AccountType.BOT)
                     .setToken(Config.getString("token"))
                     .setStatus(OnlineStatus.ONLINE)
+                    .setActivity(Activity.of(Activity.ActivityType.valueOf(Config.getString("game.type").toUpperCase()), Config.getString("game.game")))
                     .addEventListeners(eventHandler)
                     .build());
         } catch (Exception e) {
